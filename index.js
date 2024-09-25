@@ -1,16 +1,3 @@
-// ASYNCHRONOUS CODE
-
-const fs = require('fs/promises');
-async function createFile() {
-  try {
-    const content = new Date().toString();
-    await fs.writeFile('./files/test.txt', content);
-  } catch (err) {
-    console.log(err);
-  }
-}
-createFile();
-
 // Create a filename with current timestamp
 
 const fs = require("fs");
@@ -32,16 +19,30 @@ try {
   console.log(err);
 }
 
-// creating node application
-console.log(`Hello Node.js v${process.versions.node}!`);
+// // ASYNCHRONOUS CODE
 
-async function createFile() {
-  try {
-    const content = new Date().toString();
-    await fs.writeFile("./files/test.txt", content);
-    console.log("Hey all");
-  } catch (err) {
-    console.log(err);
-  }
-}
-createFile();
+// const fs = require('fs/promises');
+// async function createFile() {
+//   try {
+//     const content = new Date().toString();
+//     await fs.writeFile('./files/test.txt', content);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// createFile();
+
+
+// creating node application
+// console.log(`Hello Node.js v${process.versions.node}!`);
+
+// async function createFile() {
+//   try {
+//     const content = new Date().toString();
+//     await fs.writeFile("./files/test.txt", content);
+//     console.log("Hey all");
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// createFile();
