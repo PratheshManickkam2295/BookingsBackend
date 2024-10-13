@@ -1,48 +1,22 @@
-// Create a filename with current timestamp
+/** @format */
 
-const fs = require("fs");
-const content = new Date().toString().replace(/[:.]/g,'-');
-const path = `./files/${content}.txt`;
+// run `node index.js` in the terminal
+// STEP 1: IMPORT ALL NECESSARY PACKAGES
+const express = require("express");
+const HTTP_SERVER = express();
+const cors = require("cors");
+var bodyParser = require("body-parser");
 
-try {
-  // files written successfully
-  fs.writeFileSync(path, content);
-  // Read the same file
-  fs.readFile(path, "utf8", (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data)
-    }
-  });
-} catch (err) {
-  console.log(err);
-}
+HTTP_SERVER.use(cors());
+HTTP_SERVER.use(bodyParser.urlencoded({ extended: false }));
 
-// // ASYNCHRONOUS CODE
+// BASIC SERVER CONFIG
+const port = 5000;
+HTTP_SERVER.use(bodyParser.json());
 
-// const fs = require('fs/promises');
-// async function createFile() {
-//   try {
-//     const content = new Date().toString();
-//     await fs.writeFile('./files/test.txt', content);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-// createFile();
-
-
-// creating node application
+HTTP_SERVER.listen(port, "localhost", () => {
+  console.log("SERVER STARTED IN THE PORT", port);
+});
 // console.log(`Hello Node.js v${process.versions.node}!`);
 
-// async function createFile() {
-//   try {
-//     const content = new Date().toString();
-//     await fs.writeFile("./files/test.txt", content);
-//     console.log("Hey all");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-// createFile();
+HTTP_SERVER.use("/", (request, response, next) => {});
